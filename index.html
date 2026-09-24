@@ -2,64 +2,39 @@
 *{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}body{background:linear-gradient(145deg,#071a46,#24126f 55%,#551e9d);color:#163455}.view{display:none;min-height:100vh}.view.active{display:block}#loginView.active{display:flex;align-items:center;justify-content:center;padding:28px}.loginbox{width:min(620px,100%);background:white;border-radius:30px;padding:34px;text-align:center;box-shadow:0 20px 60px #0006}.astro{font-size:64px}.loginbox h1{font-size:42px;margin:12px 0}.loginbox p{font-size:19px}.loginbox input{width:100%;padding:19px;margin:10px 0;border:3px solid #dbe7f3;border-radius:16px;font-size:20px}.btn{border:0;border-radius:17px;padding:16px 22px;font-size:18px;font-weight:900;cursor:pointer;background:#ffd84d;color:#237ac3}.dark{background:#17355b;color:#fff}.msg{min-height:28px;color:#b42318;font-weight:800;margin-top:12px}.top{display:flex;align-items:center;gap:10px;padding:14px 5%;background:#081b46;color:#fff;position:sticky;top:0;z-index:3}.brand{font-size:20px;font-weight:1000}.grow{flex:1}.pill{padding:10px 14px;background:#ffffff18;border-radius:18px;font-weight:800}.hero{position:relative;overflow:hidden;padding:82px 20px 66px;text-align:center;color:#fff;background:radial-gradient(circle at 50% 35%,#6d45e855 0 18%,transparent 42%),linear-gradient(180deg,#081a46 0%,#17105b 58%,transparent 100%)}.hero:before,.hero:after{content:"✦  ·  ✧   ·  ✦  ·  ✧   ✦   ·  ✦  ·  ✧";position:absolute;left:0;right:0;color:#fff9;letter-spacing:18px;font-size:22px;animation:twinkle 3s ease-in-out infinite}.hero:before{top:20px}.hero:after{bottom:18px;animation-delay:1.4s}.hero h1{font-size:clamp(42px,8vw,78px);margin:0;text-shadow:0 0 28px #6fc7ff,0 4px 0 #132b72}.hero p{font-size:21px;font-weight:800}.ship{font-size:76px;display:block;filter:drop-shadow(0 10px 14px #0007);animation:float 3s ease-in-out infinite}.welcome{display:inline-block;margin-top:16px;padding:10px 18px;border:1px solid #ffffff55;border-radius:999px;background:#ffffff14;backdrop-filter:blur(8px);font-weight:800}.wrap{max-width:1050px;margin:auto;padding:25px}.panel,.card{background:#fff;border-radius:24px;padding:25px;margin:18px 0}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}.planet,.mission,.answer{width:100%;border:0;border-radius:20px;padding:21px;text-align:left;background:#fff;color:#163455;box-shadow:0 7px 22px #0002;cursor:pointer}.planet .ico{font-size:48px}.planet b{font-size:21px}.mission,.answer{margin:8px 0;font-size:17px}.answer{background:#edf6ff}.answer.good{background:#d9f6df}.answer.bad{background:#ffe0e0}.worldTitle{color:#fff;text-align:center;margin:28px 0}.bar{height:14px;background:#e4ebf2;border-radius:10px;overflow:hidden}.bar span{display:block;height:100%;background:#ffd84d}.reading{font-size:19px;line-height:1.7}@media(max-width:600px){.loginbox{padding:26px 20px}.loginbox h1{font-size:34px}.top{flex-wrap:wrap}.pill{font-size:13px}}
 
 
-/* MAPA GALÁCTICO — implementación única: arte estático + datos dinámicos */
-#mapView{background:#010516!important;overflow-x:hidden}
-#mapView>.hero{display:none!important}
-#mapView>.top{
- display:flex!important;position:relative!important;top:auto!important;z-index:20!important;
- width:min(100%,709px)!important;margin:0 auto!important;padding:12px 14px!important;
- background:linear-gradient(180deg,#08245c,#03143d)!important;border-radius:0 0 22px 22px!important;
- box-shadow:0 5px 18px #001c5faa!important;gap:8px!important;flex-wrap:nowrap!important
-}
-#mapView>.top .brand{font-size:clamp(15px,3.8vw,24px)!important;white-space:nowrap!important}
-#mapView>.top .pill{font-size:clamp(11px,2.7vw,16px)!important;padding:8px 10px!important;white-space:nowrap!important}
-#mapView>.top .grow{min-width:0!important}
-#mapView .wrap{max-width:709px!important;margin:0 auto!important;padding:0!important}
-.mapPanel{
- position:relative!important;overflow:hidden!important;width:100%!important;
- aspect-ratio:709/1435!important;min-height:0!important;margin:0!important;padding:0!important;
- border:0!important;border-radius:0!important;background-color:#010516!important;
- background-image:url('assets/05464A52-F6E7-438B-8975-55E67368AA7E.png?v=6')!important;
- background-repeat:no-repeat!important;background-size:100% auto!important;
- background-position:center -14.1vw!important;box-shadow:none!important
-}
-.mapPanel:before,.mapPanel:after,.mapTitle,.mapSub,.galaxy,.constellation,.astroMap,.shipMap,.missionHint{display:none!important}
-.planetGrid{position:absolute!important;z-index:5!important;inset:0!important;margin:0!important;padding:0!important;display:block!important}
-.planet{
- position:absolute!important;padding:0!important;margin:0!important;border:0!important;border-radius:24px!important;
- background:transparent!important;box-shadow:none!important;cursor:pointer!important;opacity:1!important;
- -webkit-tap-highlight-color:transparent!important;color:#fff!important
-}
-.planet:nth-child(1){left:5%!important;top:27.0%!important;width:40%!important;height:17%!important}
-.planet:nth-child(2){right:5%!important;top:27.0%!important;width:40%!important;height:17%!important}
-.planet:nth-child(3){left:3%!important;top:56.8%!important;width:40%!important;height:17%!important}
-.planet:nth-child(4){right:3%!important;top:56.8%!important;width:40%!important;height:17%!important}
-.planet:nth-child(5){left:29%!important;top:73.0%!important;width:42%!important;height:16%!important}
-.planet .worldBall,.planet .planetIcon,.planet b,.planet .planetArrow{display:none!important}
-.planet .planetLabel{display:block!important;position:absolute!important;left:10%!important;right:6%!important;bottom:4%!important;height:30%!important;background:#06163f!important;border:0!important;border-radius:10px!important;padding:0!important;z-index:2!important}
-.planet .progressTrack{
- display:block!important;position:absolute!important;left:4%!important;bottom:22%!important;width:66%!important;height:8px!important;z-index:3!important;
- border-radius:99px!important;background:#071b42!important;box-shadow:inset 0 0 5px #000!important;overflow:hidden!important
-}
-.planet .progressFill{display:block!important;height:100%!important;border-radius:99px!important;background:#29e9ff!important;box-shadow:0 0 8px #29e9ff!important}
-.planet:nth-child(1) .progressFill{background:#20ef63!important;box-shadow:0 0 8px #20ef63!important}
-.planet:nth-child(3) .progressFill{background:#f329e9!important;box-shadow:0 0 8px #f329e9!important}
-.planet:nth-child(4) .progressFill{background:#ffb31c!important;box-shadow:0 0 8px #ffb31c!important}
-.planet .status{
- display:block!important;position:absolute!important;right:0!important;bottom:8%!important;z-index:3!important;
- min-width:44px!important;padding:2px 3px!important;border-radius:8px!important;background:#03183f!important;
- color:#fff!important;font-size:clamp(11px,2.7vw,17px)!important;font-weight:1000!important;text-align:center!important;
- text-shadow:0 1px 2px #000!important
-}
-.planet:focus-visible{outline:3px solid #4eeaff!important;outline-offset:-3px!important}
-@media(min-width:710px){.mapPanel{background-position:center -100px!important}}
-@media(max-width:600px){
- #mapView>.top{padding:10px 8px!important}
- #mapView>.top .brand{font-size:14px!important}
- #mapView>.top .pill{font-size:11px!important;padding:7px 7px!important}
- #mapView .wrap{padding:0!important}
- .mapPanel{width:100vw!important;max-width:100%!important}
-}
+/* MAPA GALÁCTICO — reconstruido sin imagen estática */
+#mapView{background:radial-gradient(circle at 50% 38%,#432083 0 8%,#0b1850 32%,#02091f 72%,#01030c 100%)!important;color:#fff;overflow-x:hidden}
+#mapView>.hero{display:block!important;padding:36px 16px 24px!important;background:transparent!important}
+#mapView>.hero .ship{font-size:52px!important}
+#mapView>.hero h1{font-size:clamp(38px,9vw,70px)!important}
+#mapView>.hero p{margin:8px 0!important}
+#mapView>.top{display:flex!important;position:sticky!important;top:0!important;z-index:20!important;background:#071b46ee!important;backdrop-filter:blur(12px);gap:8px!important;flex-wrap:wrap!important}
+#mapView .wrap{max-width:920px!important;padding:18px!important}
+.mapPanel{position:relative!important;overflow:hidden!important;width:100%!important;min-height:820px!important;margin:0!important;padding:28px 18px 34px!important;border:1px solid #ffffff20!important;border-radius:30px!important;background:radial-gradient(circle at 50% 48%,#9b45ff55 0 5%,transparent 24%),radial-gradient(circle at 15% 15%,#20c8ff44,transparent 24%),radial-gradient(circle at 85% 70%,#ff8a2040,transparent 24%),linear-gradient(180deg,#07133c,#130942 55%,#030923)!important;box-shadow:inset 0 0 70px #0008!important}
+.mapPanel:before{content:"✦  ·  ✧   ·  ✦  ·  ✧   ·  ✦  ·  ✧  ·  ✦";display:block!important;position:absolute;inset:18px 0 auto;text-align:center;color:#fff9;letter-spacing:18px;font-size:18px}
+.mapPanel:after{content:"";display:block!important;position:absolute;left:50%;top:50%;width:210px;height:80px;transform:translate(-50%,-50%) rotate(-18deg);border-radius:50%;border:4px solid #a74cff66;box-shadow:0 0 35px #784cff}
+.mapTitle{display:block!important;position:relative!important;z-index:2;text-align:center;font-size:clamp(34px,7vw,62px);margin:18px 0 0;color:#5ceaff;text-shadow:0 0 18px #20baff}
+.mapTitle span{color:#ffb31c}
+.mapSub{display:block!important;position:relative!important;z-index:2;text-align:center;margin:4px 0 28px;color:#d9e8ff;font-weight:800}
+.galaxy,.constellation,.astroMap,.shipMap,.missionHint{display:none!important}
+.planetGrid{position:relative!important;z-index:5!important;display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:22px!important;margin-top:20px!important}
+.planet{position:relative!important;inset:auto!important;width:100%!important;height:230px!important;padding:18px!important;border:1px solid #ffffff33!important;border-radius:28px!important;background:#07183ddd!important;color:#fff!important;box-shadow:0 12px 30px #0007!important;text-align:center!important;overflow:hidden!important}
+.planet:nth-child(5){grid-column:1/-1!important;width:min(50%,360px)!important;justify-self:center!important}
+.planet .worldBall{display:flex!important;width:112px;height:112px;margin:0 auto 10px;border-radius:50%;align-items:center;justify-content:center;font-size:54px;background:radial-gradient(circle at 35% 30%,#7ef7ff,#3764e7 45%,#24146d 75%);box-shadow:0 0 28px #38caff99}
+.planet:nth-child(1) .worldBall{background:radial-gradient(circle at 35% 30%,#eaff7a,#36bd5e 48%,#15565d 76%)}
+.planet:nth-child(3) .worldBall{background:radial-gradient(circle at 35% 30%,#ff9cf2,#a82edb 48%,#401173 76%)}
+.planet:nth-child(4) .worldBall{background:radial-gradient(circle at 35% 30%,#ffe67a,#ed8a25 48%,#8a3017 76%)}
+.planet .planetLabel{display:grid!important;grid-template-columns:auto 1fr auto;grid-template-areas:"icon name status" "bar bar bar";align-items:center;gap:7px;background:transparent!important;padding:0!important}
+.planet .planetIcon{display:inline!important;grid-area:icon;font-size:20px}
+.planet b{display:block!important;grid-area:name;font-size:17px;color:#fff;text-align:left}
+.planet .planetArrow{display:none!important}
+.planet .progressTrack{display:block!important;grid-area:bar;width:100%!important;height:12px!important;border-radius:99px!important;background:#15254e!important;overflow:hidden!important;box-shadow:inset 0 0 6px #000!important}
+.planet .progressFill{display:block!important;height:100%!important;border-radius:99px!important;background:#29e9ff!important;box-shadow:0 0 10px #29e9ff!important;transition:width .35s ease}
+.planet:nth-child(1) .progressFill{background:#20ef63!important}.planet:nth-child(3) .progressFill{background:#f329e9!important}.planet:nth-child(4) .progressFill{background:#ffb31c!important}
+.planet .status{display:block!important;grid-area:status;background:#102654!important;border-radius:10px;padding:5px 8px;font-weight:1000;color:#fff}
+.planet.donePlanet{border-color:#7dffb5!important;box-shadow:0 0 28px #21ef7770!important}
+#mapView .wrap>.panel:last-child{background:#07183ddd!important;color:#fff!important;border:1px solid #ffffff22!important}
+@media(max-width:600px){#mapView>.top{padding:10px!important}.brand{font-size:16px!important}.pill{font-size:12px!important;padding:8px!important}.mapPanel{min-height:0!important;padding:20px 12px 28px!important}.planetGrid{gap:12px!important}.planet{height:205px!important;padding:12px!important}.planet .worldBall{width:92px;height:92px;font-size:44px}.planet b{font-size:14px}.planet:nth-child(5){width:58%!important}}
 </style></head><body>
 <section id="loginView" class="view active"><div class="loginbox"><div class="astro">👨‍🚀</div><h1>Bienvenido a<br>Misión Cerebro</h1><p>Escribe tu usuario y contraseña.</p><input id="username" autocomplete="username" placeholder="Nombre de usuario"><input id="password" type="password" autocomplete="current-password" placeholder="Contraseña"><button id="enterBtn" type="button" class="btn">ENTRAR A MISIÓN CEREBRO 🚀</button><div id="loginMsg" class="msg"></div><p style="font-size:14px;color:#60758b">Si el usuario no existe, se creará automáticamente.</p></div></section>
 <section id="mapView" class="view"><header class="top"><div class="brand">🚀 MISIÓN CEREBRO</div><div class="grow"></div><div class="pill">👨‍🚀 <span class="currentUser"></span></div><div class="pill">⭐ <span class="xp">0</span> XP</div><div class="pill">🏆 <span class="done">0</span>/30</div></header><div class="hero"><span class="ship">🚀</span><h1>MISIÓN CEREBRO</h1><p>Lee · Piensa · Explora · Resuelve</p><div class="welcome">🌟 Comandante <span class="currentUser"></span>, tu misión comienza ahora</div></div><main class="wrap"><div class="panel mapPanel"><div class="constellation">✦·✦<br>·✧·✦</div><div class="galaxy"></div><h2 class="mapTitle">MAPA <span>GALÁCTICO</span></h2><p class="mapSub">Explora, aprende y conquista nuevos mundos</p><div id="planetGrid" class="planetGrid"></div><div class="astroMap">🧑‍🚀</div><div class="shipMap">🚀</div><p class="missionHint">☝️ Toca un planeta para entrar en órbita y comenzar sus misiones</p></div><div class="panel"><h2>📡 Progreso</h2><div class="bar"><span id="progressBar"></span></div><p><b id="progressText">0 de 30</b> actividades completadas.</p></div></main></section>
