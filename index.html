@@ -5,9 +5,9 @@
 /* MAPA GALÁCTICO — fondo estático limpio + capa dinámica */
 #mapView{background:#010516!important;color:#fff;overflow-x:hidden}
 #mapView>.hero{display:none!important}
-#mapView>.top{display:flex!important;position:relative!important;z-index:20!important;width:min(100%,1024px)!important;margin:0 auto!important;padding:10px 12px!important;background:#061d4f!important;gap:8px!important;flex-wrap:nowrap!important;margin-bottom:0!important}
-#mapView>.top .brand{font-size:clamp(14px,3.2vw,22px)!important;white-space:nowrap}
-#mapView>.top .pill{font-size:clamp(11px,2.6vw,16px)!important;padding:8px 10px!important;white-space:nowrap}
+#mapView>.top{display:grid!important;grid-template-columns:minmax(0,1.35fr) minmax(0,.9fr) minmax(0,.75fr) minmax(0,.75fr)!important;align-items:center!important;position:relative!important;z-index:20!important;width:min(100%,1024px)!important;margin:0 auto!important;padding:10px 18px!important;background:#061d4f!important;gap:7px!important;margin-bottom:0!important}
+#mapView>.top .brand{font-size:clamp(13px,3vw,22px)!important;white-space:nowrap!important;min-width:0!important}
+#mapView>.top .pill{font-size:clamp(10px,2.45vw,16px)!important;padding:8px 7px!important;white-space:nowrap!important;min-width:0!important;justify-content:center!important;text-align:center!important}
 #mapView .wrap{max-width:1024px!important;margin:0 auto!important;padding:0!important}
 .mapPanel{position:relative!important;width:100%!important;aspect-ratio:1024/1820!important;margin:-1px 0 0!important;padding:0!important;border:0!important;border-radius:0!important;overflow:hidden!important;background:#010516 url('assets/mapa_galactico_limpio.jpg?v=1') center top/100% 100% no-repeat!important;box-shadow:none!important}
 .mapPanel:before,.mapPanel:after,.mapTitle,.mapSub,.galaxy,.constellation,.astroMap,.shipMap,.missionHint{display:none!important}
@@ -104,5 +104,11 @@ renderMap();show("loginView");
  .planet:nth-child(1) .planetLabel,.planet:nth-child(2) .planetLabel{bottom:19%!important}
  .planet:nth-child(3) .planetLabel,.planet:nth-child(4) .planetLabel{bottom:18%!important}
  .planet:nth-child(5) .planetLabel{bottom:18%!important}
+}
+</style><style>
+@media(max-width:600px){
+ #mapView>.top{grid-template-columns:minmax(0,1.25fr) minmax(0,.8fr) minmax(0,.68fr) minmax(0,.68fr)!important;padding:8px 8px!important;gap:4px!important}
+ #mapView>.top .brand{font-size:13px!important}
+ #mapView>.top .pill{font-size:11px!important;padding:7px 4px!important}
 }
 </style>
