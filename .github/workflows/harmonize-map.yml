@@ -1,0 +1,26 @@
+name: Harmonize galaxy map
+on:
+  push:
+    paths:
+      - '.github/workflows/harmonize-map.yml'
+permissions:
+  contents: write
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path("index.html")
+          s=p.read_text()
+          s=s.replace("#mapView>.top{z-index:10}", "#mapView>.top{display:none!important}")
+          s=s.replace("assets/05464A52-F6E7-438B-8975-55E67368AA7E.png')", "assets/05464A52-F6E7-438B-8975-55E67368AA7E.png?v=3')")
+          p.write_text(s)
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "Armonizar mapa galáctico y eliminar controles duplicados"
+          git push
