@@ -15,7 +15,7 @@ jobs:
       - run: npm install jsdom@26
       - name: Probar acceso, 30 actividades, progreso y limpieza
         run: |
-          cat > /tmp/test.js <<'EOF'
+          cat > test.js <<'EOF'
           const fs=require('fs'),{JSDOM}=require('jsdom');
           const html=fs.readFileSync('index.html','utf8');
           const dom=new JSDOM(html,{runScripts:'dangerously',url:'https://test.local/',pretendToBeVisual:true});
@@ -55,4 +55,4 @@ jobs:
           ok(!JSON.parse(ls.getItem('mcUsers')||'{}')['prueba_temporal_mc'],'Usuario temporal no fue eliminado');
           console.log('OK: acceso + usuario visible + 5 planetas + 30 actividades + respuestas + progreso + limpieza');
           EOF
-          node /tmp/test.js
+          node test.js
