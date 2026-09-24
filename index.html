@@ -5,7 +5,7 @@
 /* MAPA GALÁCTICO — imagen maestra + zonas táctiles invisibles */
 #mapView{background:#010516!important}
 #mapView .wrap{max-width:709px!important;margin:0 auto!important;padding:0!important}
-.mapPanel{position:relative!important;overflow:hidden!important;width:100%!important;aspect-ratio:709/1536!important;min-height:0!important;margin:0!important;padding:0!important;border:0!important;border-radius:0!important;background:#010516 url('assets/05464A52-F6E7-438B-8975-55E67368AA7E.png') center top/100% 100% no-repeat!important;box-shadow:none!important}
+.mapPanel{position:relative!important;overflow:hidden!important;width:100%!important;aspect-ratio:709/1536!important;min-height:0!important;margin:0!important;padding:0!important;border:0!important;border-radius:0!important;background:#010516 url('assets/05464A52-F6E7-438B-8975-55E67368AA7E.png?v=3') center top/100% 100% no-repeat!important;box-shadow:none!important}
 .mapPanel:before,.mapPanel:after,.mapTitle,.mapSub,.galaxy,.constellation,.astroMap,.shipMap,.missionHint{display:none!important}
 .planetGrid{position:absolute!important;z-index:5!important;inset:0!important;margin:0!important;padding:0!important;display:block!important}
 .planet{position:absolute!important;padding:0!important;margin:0!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;cursor:pointer!important;opacity:0!important;-webkit-tap-highlight-color:transparent!important}
@@ -16,7 +16,7 @@
 .planet:nth-child(5){left:27%!important;top:56%!important;width:46%!important;height:19%!important}
 .planet .worldBall,.planet .planetLabel{display:none!important}
 .planet:focus-visible{opacity:1!important;outline:3px solid #4eeaff!important;outline-offset:-3px!important}
-#mapView>.top{z-index:10}
+#mapView>.top{display:none!important}
 @media(max-width:600px){#mapView .wrap{padding:0!important}.mapPanel{width:100vw!important;max-width:100%!important}}
 </style></head><body>
 <section id="loginView" class="view active"><div class="loginbox"><div class="astro">👨‍🚀</div><h1>Bienvenido a<br>Misión Cerebro</h1><p>Escribe tu usuario y contraseña.</p><input id="username" autocomplete="username" placeholder="Nombre de usuario"><input id="password" type="password" autocomplete="current-password" placeholder="Contraseña"><button id="enterBtn" type="button" class="btn">ENTRAR A MISIÓN CEREBRO 🚀</button><div id="loginMsg" class="msg"></div><p style="font-size:14px;color:#60758b">Si el usuario no existe, se creará automáticamente.</p></div></section>
