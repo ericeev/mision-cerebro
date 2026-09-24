@@ -1,0 +1,58 @@
+name: Prueba completa Mision Cerebro
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/full-test.yml'
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install jsdom@26
+      - name: Probar acceso, 30 actividades, progreso y limpieza
+        run: |
+          cat > /tmp/test.js <<'EOF'
+          const fs=require('fs'),{JSDOM}=require('jsdom');
+          const html=fs.readFileSync('index.html','utf8');
+          const dom=new JSDOM(html,{runScripts:'dangerously',url:'https://test.local/',pretendToBeVisual:true});
+          const d=dom.window.document, ls=dom.window.localStorage;
+          function ok(x,m){if(!x)throw new Error(m)}
+          d.getElementById('username').value='prueba_temporal_mc';
+          d.getElementById('password').value='ClavePrueba123';
+          d.getElementById('enterBtn').click();
+          ok(d.getElementById('mapView').classList.contains('active'),'No entro al mapa');
+          ok([...d.querySelectorAll('.currentUser')].some(x=>x.textContent==='prueba_temporal_mc'),'No muestra usuario');
+          const planets=[...d.querySelectorAll('#planetGrid .planet')];
+          ok(planets.length===5,'No hay 5 planetas');
+          let completed=0;
+          for(let p=0;p<5;p++){
+            [...d.querySelectorAll('#planetGrid .planet')][p].click();
+            let missions=[...d.querySelectorAll('#missionButtons .mission')];
+            ok(missions.length===6,'Planeta '+p+' no tiene 6 actividades');
+            for(let m=0;m<6;m++){
+              missions=[...d.querySelectorAll('#missionButtons .mission')];
+              missions[m].click();
+              ok(d.getElementById('activityView').classList.contains('active'),'Actividad no abre');
+              const answers=[...d.querySelectorAll('#answerButtons .answer')];
+              ok(answers.length===4,'Actividad no tiene 4 respuestas');
+              const correct=[1,1,1,1,0,1,1,1,1,0,0,0,2,1,2,3,1,1,1,1,1,1,1,1,1,1,1,1,1,1][p*6+m];
+              answers[correct].click();
+              ok(d.getElementById('feedback').textContent.includes('Correcto'),'Respuesta correcta fallo en '+(p*6+m+1));
+              completed++;
+              d.querySelector('#feedback .btn').click();
+            }
+            d.getElementById('worldBack').click();
+          }
+          ok(d.getElementById('progressText').textContent==='30 de 30','Progreso final incorrecto: '+d.getElementById('progressText').textContent);
+          ok(d.querySelector('.done').textContent==='30','Contador final incorrecto');
+          const users=JSON.parse(ls.getItem('mcUsers')||'{}');
+          ok(users['prueba_temporal_mc'],'Usuario temporal no fue creado');
+          delete users['prueba_temporal_mc']; ls.setItem('mcUsers',JSON.stringify(users));
+          ok(!JSON.parse(ls.getItem('mcUsers')||'{}')['prueba_temporal_mc'],'Usuario temporal no fue eliminado');
+          console.log('OK: acceso + usuario visible + 5 planetas + 30 actividades + respuestas + progreso + limpieza');
+          EOF
+          node /tmp/test.js
