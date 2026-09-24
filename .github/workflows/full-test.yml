@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - '.github/workflows/full-test.yml'
+      - '.github/workflows/full-test.yml'\n      - 'index.html'\n      - 'assets/**'
 jobs:
   test:
     runs-on: ubuntu-latest
